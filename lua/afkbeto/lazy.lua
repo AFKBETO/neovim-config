@@ -14,6 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   {
     import = "afkbeto.plugins"
+  },
+  {
+    import = "afkbeto.plugins.lsp"
   }
 }, {
   install = {
