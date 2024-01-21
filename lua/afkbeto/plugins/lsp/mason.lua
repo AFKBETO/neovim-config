@@ -33,12 +33,10 @@ return {
         "tailwindcss",
         "svelte",
         "lua_ls",
-        "graphql",
-        "emmet_ls",
-        "prismals",
         "pyright",
         "dockerls",
-        "jsonls"
+        "jsonls",
+		"terraformls",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -53,7 +51,7 @@ return {
         "pylint", -- python linter
         "eslint_d", -- js linter
         "docker-compose-language-service",
-        "terraform-ls",
+        "tflint",
       },
     })
   end,
