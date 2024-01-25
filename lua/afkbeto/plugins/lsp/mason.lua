@@ -52,6 +52,7 @@ return {
         "eslint_d", -- js linter
         "docker-compose-language-service",
         "tflint",
+		"sonarlint-language-server"
       },
     })
   end,
