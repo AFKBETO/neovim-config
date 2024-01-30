@@ -112,8 +112,25 @@ return {
       end,
     })
 
-    -- configure graphql language server
+    -- configure terraform language server
     lspconfig["terraformls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure angular language server
+    lspconfig["angularls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    -- configure dockerfile language server
+    lspconfig["dockerls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure docker compose language server
+    lspconfig["docker_compose_language_service"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })

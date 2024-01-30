@@ -37,6 +37,8 @@ return {
         "dockerls",
         "jsonls",
 		"terraformls",
+		"docker_compose_language_service",
+		"angularls",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -50,7 +52,6 @@ return {
         "black", -- python formatter
         "pylint", -- python linter
         "eslint_d", -- js linter
-        "docker-compose-language-service",
         "tflint",
 		"sonarlint-language-server"
       },
