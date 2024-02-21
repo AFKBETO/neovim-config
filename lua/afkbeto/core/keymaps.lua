@@ -27,3 +27,28 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+keymap.set("n", "<leader>wr",
+	function()
+		vim.opt.wrap = not vim.opt.wrap
+	end,
+	{ desc = "Toggle wrap" }
+)
+keymap.set("n", "<leader>wc",
+	function()
+		local value = vim.api.nvim_get_option_value("colorcolumn", {})
+			if value == "" then
+				vim.api.nvim_set_option_value("colorcolumn", "79", {})
+			else
+				vim.api.nvim_set_option_value("colorcolumn", "", {})
+			end
+	end,
+	{ desc = "Toggle colorcolumn" }
+)
+
+keymap.set("n", "<leader>jv",
+	function ()
+		require("jenkinsfile_linter").validate()
+	end,
+	{ desc = "Validate Jenkinsfile" }
+)

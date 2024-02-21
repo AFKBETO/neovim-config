@@ -40,6 +40,7 @@ return {
 					"dockerfile",
 					"gitignore",
 					"query",
+					"groovy"
 				},
 				incremental_selection = {
 					enable = true,
