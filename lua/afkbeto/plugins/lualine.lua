@@ -49,12 +49,7 @@ return {
       },
     }
 
-    -- configure lualine with modified theme
-    lualine.setup({
-      options = {
-        theme = my_lualine_theme,
-      },
-      sections = {
+	local my_section = {
         lualine_x = {
           {
             lazy_status.updates,
@@ -65,6 +60,12 @@ return {
           { "fileformat" },
           { "filetype" },
         },
+      }
+
+    -- configure lualine with modified theme
+    lualine.setup({
+      options = {
+        theme = 'nordic',
       },
     })
   end,
