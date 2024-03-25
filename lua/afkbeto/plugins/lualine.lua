@@ -50,23 +50,23 @@ return {
     }
 
 	local my_section = {
+		lualine_c = {
+			{ 'filename', path = 1, }
+		},
         lualine_x = {
-          {
-            lazy_status.updates,
-            cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
-          },
-          { "encoding" },
-          { "fileformat" },
-          { "filetype" },
+        	{ lazy_status.updates, cond = lazy_status.has_updates, color = { fg = "#ff9e64" }, },
+        	{ "encoding" },
+        	{ "fileformat" },
+        	{ "filetype" },
         },
-      }
+    }
 
     -- configure lualine with modified theme
     lualine.setup({
       options = {
         theme = 'nordic',
       },
+		sections = my_section
     })
   end,
 }
