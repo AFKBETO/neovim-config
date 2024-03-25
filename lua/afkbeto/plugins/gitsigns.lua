@@ -5,6 +5,7 @@ return {
     require("gitsigns").setup({
       signs = {
         add = { text = "+" },
+        remove = { text = "-" },
       },
       current_line_blame = true,
       numhl = true
