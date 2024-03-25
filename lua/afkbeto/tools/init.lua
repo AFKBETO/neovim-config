@@ -1,0 +1,1 @@
+require("afkbeto.tools.note")
