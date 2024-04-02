@@ -20,7 +20,7 @@ require("lazy").setup({
   }
 }, {
   install = {
-    colorscheme = { "nightfly" },
+    colorscheme = { "nordic" },
   },
   checker = {
     enabled = true,
