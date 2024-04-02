@@ -112,7 +112,10 @@ return {
 		-- configure typescript server with plugin
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+				require("twoslash-queries").setup(client, bufnr)
+			end,
 			filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
 		})
 
