@@ -4,14 +4,14 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
-		}
+		-- {
+		-- 	"nvim-telescope/telescope-fzf-native.nvim",
+		-- 	build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+		-- },
 		--comment out the line below to use make
-		--{
-		--	'nvim-telescope/telescope-fzf-native.nvim', build = 'make'
-		--} 
+		{
+		'nvim-telescope/telescope-fzf-native.nvim', build = 'make'
+		},
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -34,6 +34,7 @@ return {
 					-- disables netrw and use telescope-file-browser in its place
 					hijack_netrw = true,
 					grouped = true,
+					hidden = { file_browser = true, folder_browser = true },
 				},
 			},
 		})
