@@ -27,11 +27,11 @@ return {
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 					},
 				},
+				theme = "center",
+				sorting_strategy = "ascending",
 			},
 			extensions = {
 				file_browser = {
-					theme = "ivy",
-					-- disables netrw and use telescope-file-browser in its place
 					hijack_netrw = true,
 					grouped = true,
 					hidden = { file_browser = true, folder_browser = true },
