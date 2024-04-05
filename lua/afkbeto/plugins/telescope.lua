@@ -12,11 +12,14 @@ return {
 		{
 		'nvim-telescope/telescope-fzf-native.nvim', build = 'make',
 		},
+		'nvim-telescope/telescope-ui-select.nvim',
 		"nvim-telescope/telescope-file-browser.nvim",
+		"nvim-telescope/telescope-project.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+		local project_actions = require("telescope._extensions.project.actions")
 
 		telescope.setup({
 			defaults = {
@@ -40,11 +43,27 @@ return {
 					grouped = true,
 					hidden = { file_browser = true, folder_browser = true },
 				},
+				["ui-select"] = {
+					theme = "dropdown",
+				},
+				project = {
+					hidden_files = true, -- default: false
+					order_by = "asc",
+					search_by = "title",
+					sync_with_nvim_tree = true, -- default false
+					-- default for on_project_selected = find project files
+					on_project_selected = function(prompt_bufnr)
+						-- Do anything you want in here. For example:
+						project_actions.change_working_directory(prompt_bufnr, false)
+					end
+				}
 			},
 		})
 
 		telescope.load_extension("fzf")
 		telescope.load_extension("file_browser")
+		telescope.load_extension("ui-select")
+		telescope.load_extension("project")
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
@@ -56,5 +75,8 @@ return {
 		keymap.set("n", "<space>fb", function()
 			require("telescope").extensions.file_browser.file_browser({ path = "%:p:h", select_buffer = true })
 		end, { desc = "File browser", noremap = true, silent = true })
+		keymap.set("n", "<C-p>", function()
+			require("telescope").extensions.project.project()
+		end, { desc = "Open project picker", noremap = true, silent = true })
 	end,
 }
