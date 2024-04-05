@@ -10,7 +10,6 @@ return {
 		-- },
 		--comment out the line below to use make
 		{
-		'nvim-telescope/telescope-fzf-native.nvim', build = 'make'
 		'nvim-telescope/telescope-fzf-native.nvim', build = 'make',
 		},
 		"nvim-telescope/telescope-file-browser.nvim",
@@ -22,6 +21,9 @@ return {
 		telescope.setup({
 			defaults = {
 				path_display = { "truncate " },
+				layout_config = {
+					prompt_position = "top",
+				},
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
