@@ -11,7 +11,9 @@ return {
 		--comment out the line below to use make
 		{
 		'nvim-telescope/telescope-fzf-native.nvim', build = 'make'
+		'nvim-telescope/telescope-fzf-native.nvim', build = 'make',
 		},
+		"nvim-telescope/telescope-file-browser.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -51,6 +53,6 @@ return {
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<space>fb", function()
 			require("telescope").extensions.file_browser.file_browser({ path = "%:p:h", select_buffer = true })
-		end, { desc = "File browser" })
+		end, { desc = "File browser", noremap = true, silent = true })
 	end,
 }
