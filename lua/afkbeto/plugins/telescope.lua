@@ -37,6 +37,17 @@ return {
 				theme = "center",
 				sorting_strategy = "ascending",
 			},
+			pickers = {
+				find_files = {
+					hidden = true
+				},
+				grep_string = {
+					additional_args = {"--hidden"}
+				},
+				live_grep = {
+					additional_args = {"--hidden"}
+				},
+			  },
 			extensions = {
 				file_browser = {
 					hijack_netrw = true,
