@@ -113,13 +113,22 @@ return {
 		})
 
 		-- configure typescript server with plugin
-		lspconfig["tsserver"].setup({
+		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
 				require("twoslash-queries").setup(client, bufnr)
 			end,
-			filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
+			single_file_support = false,
+			root_markers = { "package.json" },
+		})
+		lspconfig["denols"].setup({
+			capabilities = capabilities,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+				require("twoslash-queries").setup(client, bufnr)
+			end,
+			root_markers = { "deno.json", "deno.jsonc" },
 		})
 
 		-- configure css server
