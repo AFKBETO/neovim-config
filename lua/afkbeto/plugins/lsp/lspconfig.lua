@@ -81,61 +81,6 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		-- configure html server
-		lspconfig["html"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure yaml server
-		lspconfig["yamlls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure helm server
-		lspconfig["helm_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				["helm_ls"] = {
-					yamlls = {
-						path = "yaml-language-server",
-					}
-				}
-			}
-		})
-
-		-- configure groovy server
-		lspconfig["groovyls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure typescript server with plugin
-		lspconfig["ts_ls"].setup({
-			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				require("twoslash-queries").setup(client, bufnr)
-			end,
-			single_file_support = false,
-			root_markers = { "package.json" },
-		})
-		lspconfig["denols"].setup({
-			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-				require("twoslash-queries").setup(client, bufnr)
-			end,
-			root_markers = { "deno.json", "deno.jsonc" },
-		})
-
-		-- configure css server
-		lspconfig["cssls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
 
 		-- configure tailwindcss server
 		lspconfig["tailwindcss"].setup({
@@ -143,55 +88,8 @@ return {
 			on_attach = on_attach,
 		})
 
-		-- configure svelte server
-		lspconfig["svelte"].setup({
-			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-
-				vim.api.nvim_create_autocmd("BufWritePost", {
-					pattern = { "*.js", "*.ts" },
-					callback = function(ctx)
-							if client.name == "svelte" then
-						client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-					end
-				end,
-				})
-			end,
-		})
-
-		-- configure terraform language server
-		lspconfig["terraformls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
 		-- configure angular language server
 		lspconfig["angularls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-		-- configure dockerfile language server
-		lspconfig["dockerls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure docker compose language server
-		lspconfig["docker_compose_language_service"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure emmet language server
-		lspconfig["emmet_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-		})
-
-		-- configure python server
-		lspconfig["pyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
