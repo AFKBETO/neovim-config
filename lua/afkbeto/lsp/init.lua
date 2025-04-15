@@ -18,7 +18,7 @@ vim.lsp.config('lua_ls', {
 
 vim.lsp.enable({
 	"denols",
-	"ts_ls",
+	-- "ts_ls", -- disable for now, waiting for nvim 0.11.1
 	"html",
 	"cssls",
 	"lua_ls",
