@@ -1,4 +1,4 @@
-require("afkbeto.core")
-require("afkbeto.lazy")
-require("afkbeto.tools")
-require("afkbeto.lsp")
+require("core")
+require("core.lazy")
+require("tools")
+require("lsp")
