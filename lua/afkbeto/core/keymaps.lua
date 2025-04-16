@@ -52,3 +52,9 @@ keymap.set("n", "<leader>jv",
 	end,
 	{ desc = "Validate Jenkinsfile" }
 )
+keymap.set("n", "<leader>on",
+	function()
+		require("nvim-navbuddy").open()
+	end,
+	{ desc = "Open NavBuddy" }
+)
