@@ -3,7 +3,9 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
+		{
+			"antosha417/nvim-lsp-file-operations", config = true
+		},
 		{
 			"SmiteshP/nvim-navbuddy",
 			dependencies = {
@@ -13,7 +15,7 @@ return {
 				},
 				"MunifTanjim/nui.nvim"
 			},
-			opts = { lsp = { auto_attach = true } }
+			opts = { lsp = { auto_attach = true } },
 		}
 	},
 	config = function()
