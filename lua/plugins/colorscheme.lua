@@ -1,18 +1,15 @@
 return {
 	{
-		'AlexvZyl/nordic.nvim',
+		'metalelf0/black-metal-theme-neovim',
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require('nordic').setup({
-				bold_keyword = true,
-				override = {
-					LineNr = {
-                        fg = "#d99cd0",
-                    },
-				}
+			require('black-metal').setup({
+				theme = 'bathory',
+				variant = 'light',
+				alt_bg = true,
 			})
-			vim.cmd([[colorscheme nordic]])
-		end
+			require('black-metal').load()
+		end,
 	},
 }
