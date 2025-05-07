@@ -1,4 +1,18 @@
+require('lsp.cmd')
+
 vim.lsp.config('lua_ls', {
+	-- copied config from nvim-lspconfig
+	cmd = { 'lua-language-server' },
+	filetypes = { 'lua' },
+	root_markers = {
+		'.luarc.json',
+		'.luarc.jsonc',
+		'.luacheckrc',
+		'.stylua.toml',
+		'stylua.toml',
+		'selene.toml',
+		'selene.yml',
+	},
 	settings = { -- custom settings for lua
 		Lua = {
 			-- make the language server recognize "vim" global
@@ -18,7 +32,7 @@ vim.lsp.config('lua_ls', {
 
 vim.lsp.enable({
 	"denols",
-	-- "ts_ls", -- disable for now, waiting for nvim 0.11.1
+	"ts_ls",
 	"html",
 	"cssls",
 	"lua_ls",
@@ -27,14 +41,17 @@ vim.lsp.enable({
 	"jsonls",
 	"terraformls",
 	"docker_compose_language_service",
-	"groovyls",
 	"yamlls",
 	"helm_ls"
 })
 
+vim.keymap.set('n', 'gK', function()
+	local new_config = not vim.diagnostic.config().virtual_lines
+	vim.diagnostic.config({ virtual_lines = new_config })
+end, { desc = 'Toggle diagnostic virtual_lines' })
+
 vim.diagnostic.config({
 	virtual_text = { current_line = true },
-	virtual_lines = true
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
