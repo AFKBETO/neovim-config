@@ -42,7 +42,8 @@ vim.lsp.enable({
 	"terraformls",
 	"docker_compose_language_service",
 	"yamlls",
-	"helm_ls"
+	"helm_ls",
+	"rust_analyzer",
 })
 
 vim.keymap.set('n', 'gK', function()
