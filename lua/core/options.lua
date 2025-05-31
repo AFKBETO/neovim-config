@@ -1,4 +1,6 @@
-local opt = vim.opt -- for conciseness
+local opt = vim.opt     -- for conciseness
+
+opt.fileformat = "unix" -- use unix line endings
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
