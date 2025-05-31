@@ -44,6 +44,7 @@ vim.lsp.enable({
 	"yamlls",
 	"helm_ls",
 	"rust_analyzer",
+	"vue_ls",
 })
 
 vim.keymap.set('n', 'gK', function()

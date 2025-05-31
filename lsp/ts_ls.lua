@@ -1,8 +1,20 @@
+local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
+local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
+
 -- copied config from nvim-lspconfig
 return {
 	workspace_required = true,
 	root_markers = { "package.json", "tsconfig.json", "jsconfig.json" },
-	init_options = { hostInfo = 'neovim' },
+	init_options = {
+		hostInfo = 'neovim',
+		plugins = {
+			{
+				name = "@vue/typescript-plugin",
+				location = volar_path,
+				languages = { "vue" },
+			},
+		},
+	},
 	cmd = { 'typescript-language-server', '--stdio' },
 	filetypes = {
 		'javascript',
@@ -11,6 +23,21 @@ return {
 		'typescript',
 		'typescriptreact',
 		'typescript.tsx',
+		'vue',
+	},
+	settings = {
+		typescript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
 	},
 	handlers = {
 		-- handle rename request for certain code actions like extracting functions / types
