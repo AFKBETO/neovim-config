@@ -65,6 +65,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 		map("<leader>lr", "<cmd>LspRestart<CR>", "Restart LSP")
 		map("<leader>li", "<cmd>LspInfo<CR>", "Show LSP info")
+		map("<leader>lf", vim.lsp.buf.format, "Format buffer", { "n", "v" }) -- format buffer
 
 		if client:supports_method('textDocument/implementation') then
 			map("gi", "<cmd>Telescope lsp_implementations<CR>", "Show LSP implementations") -- show lsp implementations
