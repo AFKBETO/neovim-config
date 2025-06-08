@@ -24,7 +24,7 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
-		{ import = "plugins.lspconfig" }
+		{ import = "lsp.lspconfig" }
 	},
 	checker = {
 		enabled = true,

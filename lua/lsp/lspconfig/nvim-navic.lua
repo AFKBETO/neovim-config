@@ -3,7 +3,16 @@ return {
 	dependencies = {
 		{
 			"SmiteshP/nvim-navic",
-			opts = { lsp = { auto_attach = true } },
+			opts = {
+				lsp = {
+					auto_attach = true,
+					preference = {
+						"denols",
+						"vue_ls",
+						"ts_ls",
+					}
+				}
+			},
 		},
 		"MunifTanjim/nui.nvim"
 	},
