@@ -1,5 +1,5 @@
-local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
-local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
+local vue_language_server = vim.fn.stdpath('data') ..
+'/mason/packages/vue-language-server/node_modules/@vue/language-server'
 
 -- copied config from nvim-lspconfig
 return {
@@ -10,8 +10,12 @@ return {
 		plugins = {
 			{
 				name = "@vue/typescript-plugin",
-				location = volar_path,
-				languages = { "vue" },
+				location = vue_language_server,
+				languages = {
+					"javascript",
+					"typescript",
+					"vue"
+				},
 			},
 		},
 	},
