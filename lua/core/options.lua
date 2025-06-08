@@ -41,27 +41,3 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
-
-vim.g.markdown_fenced_languages = {
-	"ts=typescript"
-}
-local hl = "DiagnosticSign"
-
-vim.diagnostic.config({
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = " ",
-			[vim.diagnostic.severity.WARN] = " ",
-			[vim.diagnostic.severity.INFO] = " ",
-			[vim.diagnostic.severity.HINT] = "󰠠 "
-		},
-		texthl = {
-			[vim.diagnostic.severity.ERROR] = hl .. "Error",
-			[vim.diagnostic.severity.WARN] = hl .. "Warn",
-			[vim.diagnostic.severity.INFO] = hl .. "Info",
-			[vim.diagnostic.severity.HINT] = hl .. "Hint",
-		},
-		numhl = {
-		},
-	},
-})
