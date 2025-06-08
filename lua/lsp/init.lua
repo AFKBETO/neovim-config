@@ -52,10 +52,6 @@ vim.keymap.set('n', 'gK', function()
 	vim.diagnostic.config({ virtual_lines = new_config })
 end, { desc = 'Toggle diagnostic virtual_lines' })
 
-vim.diagnostic.config({
-	virtual_text = { current_line = true },
-})
-
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = vim.api.nvim_create_augroup('my.lsp', {}),
 	callback = function(args)
@@ -138,6 +134,16 @@ vim.g.markdown_fenced_languages = {
 local hl = "DiagnosticSign"
 
 vim.diagnostic.config({
+	virtual_text = {
+		current_line = true
+	},
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		border = "rounded",
+		source = true,
+	},
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = " ",
@@ -152,6 +158,8 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.HINT] = hl .. "Hint",
 		},
 		numhl = {
+			[vim.diagnostic.severity.ERROR] = "ErrorMsg",
+			[vim.diagnostic.severity.WARN] = "WarningMsg",
 		},
 	},
 })
