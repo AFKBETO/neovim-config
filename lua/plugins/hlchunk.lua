@@ -19,10 +19,13 @@ return {
 				enable = true,
 				use_treesitter = false,
 				chars = {
-					" ",
+					"│",
+					"¦",
+					"┆",
+					"┊",
 				},
 				style = {
-					{ bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui") },
+					vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
 				},
 			}
 		})
