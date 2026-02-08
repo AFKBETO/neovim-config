@@ -39,9 +39,9 @@ return {
 				"docker_compose_language_service",
 				"angularls",
 				"yamlls",
-				"groovyls",
 				"helm_ls",
 				"rust_analyzer",
+				"ansiblels",
 				"vue_ls",
 
 			},

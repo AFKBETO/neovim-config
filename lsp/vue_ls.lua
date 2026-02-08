@@ -16,9 +16,6 @@ return {
 		typescript = {
 			tsdk = '',
 		},
-		vue = {
-			hybridMode = false
-		},
 	},
 	before_init = function(_, config)
 		if config.init_options and config.init_options.typescript and config.init_options.typescript.tsdk == '' then

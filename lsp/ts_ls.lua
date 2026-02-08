@@ -1,5 +1,5 @@
 local vue_language_server = vim.fn.stdpath('data') ..
-'/mason/packages/vue-language-server/node_modules/@vue/language-server'
+	'/mason/packages/vue-language-server/node_modules/@vue/language-server'
 
 -- copied config from nvim-lspconfig
 return {
@@ -58,7 +58,8 @@ return {
 			return vim.NIL
 		end,
 	},
-	on_attach = function(client)
+	on_attach = function(client, bufnr)
+		require("twoslash-queries").attach(client, bufnr)
 		-- ts_ls provides `source.*` code actions that apply to the whole file. These only appear in
 		-- `vim.lsp.buf.code_action()` if specified in `context.only`.
 		vim.api.nvim_buf_create_user_command(0, 'LspTypescriptSourceAction', function()

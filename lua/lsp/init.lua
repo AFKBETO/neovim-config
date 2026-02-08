@@ -44,6 +44,7 @@ vim.lsp.enable({
 	"yamlls",
 	"helm_ls",
 	"rust_analyzer",
+	"ansiblels",
 	"vue_ls",
 })
 
@@ -104,14 +105,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end
 		-- Auto-format ("lint") on save.
 		-- Usually not needed if server supports "textDocument/willSaveWaitUntil".
-		if not client:supports_method('textDocument/willSaveWaitUntil') and client:supports_method('textDocument/formatting') then
-			vim.api.nvim_create_autocmd('BufWritePre', {
-				group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
-				buffer = event.buf,
-				callback = function()
-					vim.lsp.buf.format({ bufnr = event.buf, id = client.id, timeout_ms = 1000 })
-				end,
-			})
+		if client:supports_method('textDocument/formatting') then
+			map("<leader>fmt", function()
+				vim.lsp.buf.format({ bufnr = event.buf, id = client.id, timeout_ms = 1000 })
+			end, "Format doc", { "n" }) -- Format current buffer
 		end
 		if client.name == "denols" or client.name == "ts_ls" then
 			require("twoslash-queries").setup(client, event.buf)

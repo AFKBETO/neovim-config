@@ -80,6 +80,7 @@ return {
 		['textDocument/references'] = denols_handler,
 	},
 	on_attach = function(client, bufnr)
+		require("twoslash-queries").attach(client, bufnr)
 		vim.api.nvim_buf_create_user_command(0, 'LspDenolsCache', function()
 			client:exec_cmd({
 				command = 'deno.cache',
